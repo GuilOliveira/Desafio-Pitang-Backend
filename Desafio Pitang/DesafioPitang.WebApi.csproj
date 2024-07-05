@@ -9,11 +9,13 @@
 
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.31" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DesafioPitang.Repository\DesafioPitang.Repository.csproj" />
     <ProjectReference Include="..\DesafioPitang.Utils\DesafioPitang.Utils.csproj" />
   </ItemGroup>
 
