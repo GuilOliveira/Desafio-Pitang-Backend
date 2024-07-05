@@ -19,6 +19,8 @@ namespace DesafioPitang.WebApi
 
             services.AddDependencyInjectionConfiguration(Configuration);
 
+            services.AddDatabaseConfiguration(Configuration);
+
             services.AddSwaggerGen(c =>
             {
                 c.MapType(typeof(TimeSpan), () => new() { Type = "string", Example = new OpenApiString("00:00:00") });
