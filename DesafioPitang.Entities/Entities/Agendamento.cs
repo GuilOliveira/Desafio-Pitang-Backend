@@ -1,6 +1,6 @@
 ﻿namespace DesafioPitang.Entities.Entities
 {
-    public class Agendamento
+    public class Agendamento : IdEntity<int>
     {
         public int IdPaciente { get; set; }
         public DateOnly Data { get; set; }
