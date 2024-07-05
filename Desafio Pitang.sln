@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioPitang.WebApi", "Desafio Pitang\DesafioPitang.WebApi.csproj", "{D80F83A8-52DF-4264-B1BA-85E9394C96CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioPitang.WebApi", "Desafio Pitang\DesafioPitang.WebApi.csproj", "{D80F83A8-52DF-4264-B1BA-85E9394C96CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioPitang.Utils", "DesafioPitang.Utils\DesafioPitang.Utils.csproj", "{2A2771EE-8CFD-4F5A-BC96-F8D7F9469C58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D80F83A8-52DF-4264-B1BA-85E9394C96CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D80F83A8-52DF-4264-B1BA-85E9394C96CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D80F83A8-52DF-4264-B1BA-85E9394C96CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A2771EE-8CFD-4F5A-BC96-F8D7F9469C58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A2771EE-8CFD-4F5A-BC96-F8D7F9469C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A2771EE-8CFD-4F5A-BC96-F8D7F9469C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A2771EE-8CFD-4F5A-BC96-F8D7F9469C58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
