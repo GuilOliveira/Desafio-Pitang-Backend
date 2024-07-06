@@ -3,23 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioPitang.WebApi", "Desafio Pitang\DesafioPitang.WebApi.csproj", "{D80F83A8-52DF-4264-B1BA-85E9394C96CF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioPitang.Utils", "DesafioPitang.Utils\DesafioPitang.Utils.csproj", "{2A2771EE-8CFD-4F5A-BC96-F8D7F9469C58}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioPitang.Business.Interface", "DesafioPitang.Business.Interface\DesafioPitang.Business.Interface.csproj", "{21EDBCB2-9174-4694-8DC6-7E0DF640661B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioPitang.Business", "DesafioPitang.Business\DesafioPitang.Business.csproj", "{AAD7A6C3-20E7-41D8-A864-D0C13DBFB9BC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioPitang.Repository.Interface", "DesafioPitang.Repository.Interface\DesafioPitang.Repository.Interface.csproj", "{BFF73C65-3334-46D5-A41D-7D7CD3A6E218}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioPitang.Repository", "DesafioPitang.Repository\DesafioPitang.Repository.csproj", "{B74551B8-792D-4CD9-A4F0-6D06615CCE5E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioPitang.Entities", "DesafioPitang.Entities\DesafioPitang.Entities.csproj", "{BBC32C45-597A-4181-B5F9-74611DD517B7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioPitang.Validators", "DesafioPitang.Validators\DesafioPitang.Validators.csproj", "{48A5B17F-FF97-41E9-AE57-EB9DCF07AD9D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioPitang.UnitTests", "DesafioPitang.UnitTests\DesafioPitang.UnitTests.csproj", "{B956B3E7-9C9E-464F-BE07-4D297F1F860A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desafio Pitang", "Desafio Pitang\Desafio Pitang.csproj", "{D80F83A8-52DF-4264-B1BA-85E9394C96CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,38 +15,6 @@ Global
 		{D80F83A8-52DF-4264-B1BA-85E9394C96CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D80F83A8-52DF-4264-B1BA-85E9394C96CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D80F83A8-52DF-4264-B1BA-85E9394C96CF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A2771EE-8CFD-4F5A-BC96-F8D7F9469C58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A2771EE-8CFD-4F5A-BC96-F8D7F9469C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A2771EE-8CFD-4F5A-BC96-F8D7F9469C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A2771EE-8CFD-4F5A-BC96-F8D7F9469C58}.Release|Any CPU.Build.0 = Release|Any CPU
-		{21EDBCB2-9174-4694-8DC6-7E0DF640661B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21EDBCB2-9174-4694-8DC6-7E0DF640661B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21EDBCB2-9174-4694-8DC6-7E0DF640661B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21EDBCB2-9174-4694-8DC6-7E0DF640661B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AAD7A6C3-20E7-41D8-A864-D0C13DBFB9BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AAD7A6C3-20E7-41D8-A864-D0C13DBFB9BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AAD7A6C3-20E7-41D8-A864-D0C13DBFB9BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AAD7A6C3-20E7-41D8-A864-D0C13DBFB9BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BFF73C65-3334-46D5-A41D-7D7CD3A6E218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BFF73C65-3334-46D5-A41D-7D7CD3A6E218}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BFF73C65-3334-46D5-A41D-7D7CD3A6E218}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BFF73C65-3334-46D5-A41D-7D7CD3A6E218}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B74551B8-792D-4CD9-A4F0-6D06615CCE5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B74551B8-792D-4CD9-A4F0-6D06615CCE5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B74551B8-792D-4CD9-A4F0-6D06615CCE5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B74551B8-792D-4CD9-A4F0-6D06615CCE5E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BBC32C45-597A-4181-B5F9-74611DD517B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BBC32C45-597A-4181-B5F9-74611DD517B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BBC32C45-597A-4181-B5F9-74611DD517B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BBC32C45-597A-4181-B5F9-74611DD517B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{48A5B17F-FF97-41E9-AE57-EB9DCF07AD9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{48A5B17F-FF97-41E9-AE57-EB9DCF07AD9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{48A5B17F-FF97-41E9-AE57-EB9DCF07AD9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{48A5B17F-FF97-41E9-AE57-EB9DCF07AD9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B956B3E7-9C9E-464F-BE07-4D297F1F860A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B956B3E7-9C9E-464F-BE07-4D297F1F860A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B956B3E7-9C9E-464F-BE07-4D297F1F860A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B956B3E7-9C9E-464F-BE07-4D297F1F860A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
