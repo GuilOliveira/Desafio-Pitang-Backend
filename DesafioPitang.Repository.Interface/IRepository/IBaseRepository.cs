@@ -1,9 +1,4 @@
 ﻿using DesafioPitang.Entities.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesafioPitang.Repository.Interface.IRepository
 {
@@ -12,10 +7,10 @@ namespace DesafioPitang.Repository.Interface.IRepository
         Task<TEntity> GetById(object id);
         Task<List<TEntity>> GetAll();
         Task<TEntity> Insert(TEntity entity);
-        Task Insert(IEnumerable<TEntity> entity);
+        Task Insert(IEnumerable<TEntity> entities);
         Task<TEntity> Update(TEntity entity);
         Task Delete(TEntity entity);
-        Task Delete(IEnumerable<TEntity> entity);
+        Task Delete(IEnumerable<TEntity> entities);
         Task DeleteById(object id);
     }
 }
