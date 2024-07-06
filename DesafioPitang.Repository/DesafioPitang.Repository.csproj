@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DesafioPitang.Entities\DesafioPitang.Entities.csproj" />
+    <ProjectReference Include="..\DesafioPitang.Repository.Interface\DesafioPitang.Repository.Interface.csproj" />
   </ItemGroup>
 
 </Project>

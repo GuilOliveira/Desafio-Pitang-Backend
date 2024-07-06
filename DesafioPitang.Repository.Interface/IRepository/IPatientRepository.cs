@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DesafioPitang.Entities.Entities;
 
 namespace DesafioPitang.Repository.Interface.IRepository
 {
-    public interface IPatientRepository
+    public interface IPatientRepository : IBaseRepository<Patient>
     {
+        
     }
 }
