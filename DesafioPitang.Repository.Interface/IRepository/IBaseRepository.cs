@@ -12,5 +12,7 @@ namespace DesafioPitang.Repository.Interface.IRepository
         Task Delete(TEntity entity);
         Task Delete(IEnumerable<TEntity> entities);
         Task DeleteById(object id);
+        Task<bool> Exists(TEntity entity);
+        Task<bool> ExistsById(object id);
     }
 }
