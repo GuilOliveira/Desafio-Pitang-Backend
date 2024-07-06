@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DesafioPitang.Repository.Map
 {
-    public class PacienteMap : IEntityTypeConfiguration<Paciente>
+    public class PatientMap : IEntityTypeConfiguration<Patient>
     {
-        public void Configure(EntityTypeBuilder<Paciente> builder)
+        public void Configure(EntityTypeBuilder<Patient> builder)
         {
             builder.ToTable("tb_paciente");
 
@@ -16,21 +16,21 @@ namespace DesafioPitang.Repository.Map
                 .HasColumnName("id_paciente")
                 .IsRequired();
 
-            builder.Property(p => p.Nome)
+            builder.Property(p => p.Name)
                 .HasColumnName("dsc_nome")
                 .IsRequired();
 
-            builder.Property(p => p.DataNascimento)
+            builder.Property(p => p.BirthDate)
                 .HasColumnName("dat_nascimento")
                 .IsRequired();
 
-            builder.Property(p => p.DataCriacao)
+            builder.Property(p => p.CreatedAt)
                 .HasColumnName("dat_criacao")
                 .IsRequired();
 
-            builder.HasMany(p => p.Agendamentos)
-                   .WithOne(a => a.Paciente)
-                   .HasForeignKey(a => a.IdPaciente)
+            builder.HasMany(p => p.Appointments)
+                   .WithOne(a => a.Patient)
+                   .HasForeignKey(a => a.PatientId)
                    .HasConstraintName("fk_agendamento_paciente");
         }
     }

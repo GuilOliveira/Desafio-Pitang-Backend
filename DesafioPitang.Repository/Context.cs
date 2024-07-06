@@ -5,8 +5,8 @@ namespace DesafioPitang.Repository
 {
     public class Context : DbContext
     {
-        public DbSet<Agendamento> Agendamento { get; set; }
-        public DbSet<Paciente> Paciente { get; set; }
+        public DbSet<Appointment> Agendamento { get; set; }
+        public DbSet<Patient> Paciente { get; set; }
         public Context(DbContextOptions<Context> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

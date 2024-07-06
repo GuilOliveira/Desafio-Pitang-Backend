@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DesafioPitang.Repository.Map
 {
-    public class AgendamentoMap : IEntityTypeConfiguration<Agendamento>
+    public class AppointmentMap : IEntityTypeConfiguration<Appointment>
     {
-        public void Configure(EntityTypeBuilder<Agendamento> builder)
+        public void Configure(EntityTypeBuilder<Appointment> builder)
         {
             builder.ToTable("tb_agendamento");
 
@@ -16,15 +16,15 @@ namespace DesafioPitang.Repository.Map
                 .HasColumnName("id_agendamento")
                 .IsRequired();
 
-            builder.Property(a => a.IdPaciente)
+            builder.Property(a => a.PatientId)
                 .HasColumnName("id_paciente")
                 .IsRequired();
 
-            builder.Property(a => a.Data)
+            builder.Property(a => a.Date)
                 .HasColumnName("dat_agendamento")
                 .IsRequired();
 
-            builder.Property(a => a.Hora)
+            builder.Property(a => a.Time)
                 .HasColumnName("hor_agendamento")
                 .IsRequired();
 
@@ -33,13 +33,13 @@ namespace DesafioPitang.Repository.Map
                 .HasMaxLength(50)
                 .IsRequired();
 
-            builder.Property(a => a.DataCriacao)
+            builder.Property(a => a.CreatedAt)
                 .HasColumnName("dat_criacao")
                 .IsRequired();
 
-            builder.HasOne(a => a.Paciente)
-                   .WithMany(p => p.Agendamentos)
-                   .HasForeignKey(x => x.IdPaciente)
+            builder.HasOne(a => a.Patient)
+                   .WithMany(p => p.Appointments)
+                   .HasForeignKey(x => x.PatientId)
                    .HasConstraintName("fk_agendamento_paciente");
         }
     }
