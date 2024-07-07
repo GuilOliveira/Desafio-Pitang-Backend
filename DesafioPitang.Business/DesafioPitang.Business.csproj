@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DesafioPitang.Business.Interface\DesafioPitang.Business.Interface.csproj" />
+  </ItemGroup>
+
 </Project>

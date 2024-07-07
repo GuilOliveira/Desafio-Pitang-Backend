@@ -1,6 +1,5 @@
 ﻿using DesafioPitang.Entities.Entities;
-using DesafioPitang.Repository.Interface.IRepository;
-
+using DesafioPitang.Repository.Interface.IRepositories;
 
 namespace DesafioPitang.Repository.Repositories
 {

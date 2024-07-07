@@ -1,6 +1,6 @@
 ﻿using DesafioPitang.Entities.Entities;
 
-namespace DesafioPitang.Repository.Interface.IRepository
+namespace DesafioPitang.Repository.Interface.IRepositories
 {
     public interface IBaseRepository<TEntity> where TEntity : class, IEntity
     {
