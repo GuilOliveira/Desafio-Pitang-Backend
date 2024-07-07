@@ -31,7 +31,7 @@ namespace DesafioPitang.Repository.Repositories
             if (searchedEntity != null) { await Delete(searchedEntity); }
         }
 
-        public Task<List<TEntity>> GetAll() => EntitySet.ToListAsync();
+        public async Task<List<TEntity>> GetAll() => await EntitySet.ToListAsync();
 
         public async Task<TEntity> GetById(object id)
         {

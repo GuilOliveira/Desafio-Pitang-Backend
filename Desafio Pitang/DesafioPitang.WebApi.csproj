@@ -15,6 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DesafioPitang.Business.Interface\DesafioPitang.Business.Interface.csproj" />
+    <ProjectReference Include="..\DesafioPitang.Business\DesafioPitang.Business.csproj" />
     <ProjectReference Include="..\DesafioPitang.Repository\DesafioPitang.Repository.csproj" />
     <ProjectReference Include="..\DesafioPitang.Utils\DesafioPitang.Utils.csproj" />
   </ItemGroup>

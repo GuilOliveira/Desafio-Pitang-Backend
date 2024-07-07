@@ -1,22 +1,27 @@
 ﻿using DesafioPitang.Entities.Entities;
+using DesafioPitang.Entities.Models;
 using DesafioPitang.Repository.Interface.IRepositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace DesafioPitang.Repository.Repositories
 {
-    internal class AppointmentRepository : BaseRepository<Appointment>, IAppointmentRepository
+    public class AppointmentRepository : BaseRepository<Appointment>, IAppointmentRepository
     {
         public AppointmentRepository(Context context) : base(context)
         {
         }
 
-        public Task<Appointment> ChangeStatus(string Status)
+        public async Task<Appointment> ChangeStatus(AppointmentStatusUpdateModel statusModel)
         {
-            throw new NotImplementedException();
+            var appointment = await GetById(statusModel.Id);
+            appointment.Status = statusModel.Status;
+            return appointment;
         }
 
-        public Task<List<Appointment>> GetAllByDate(DateOnly date)
+        public async Task<List<Appointment>> GetAllByDate(DateTime date)
         {
-            throw new NotImplementedException();
+            var query = EntitySet.Where(appointment => appointment.Date == date.Date);
+            return await query.ToListAsync();
         }
 
         public Task<List<Appointment>> GetAllByDatetime(DateTime date)
