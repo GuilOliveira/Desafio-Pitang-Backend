@@ -1,5 +1,5 @@
 ﻿using DesafioPitang.Entities.Entities;
-using DesafioPitang.Repository.Interface.IRepository;
+using DesafioPitang.Repository.Interface.IRepositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace DesafioPitang.Repository.Repositories
@@ -8,7 +8,7 @@ namespace DesafioPitang.Repository.Repositories
     {
         protected readonly Context _context;
         protected virtual DbSet<TEntity> EntitySet { get; }
-        public BaseRepository(Context context) 
+        public BaseRepository(Context context)
         {
             _context = context;
             EntitySet = _context.Set<TEntity>();
@@ -60,13 +60,13 @@ namespace DesafioPitang.Repository.Repositories
 
         public async Task<bool> Exists(TEntity entity)
         {
-            if(await EntitySet.FindAsync(entity) != null) return true;
+            if (await EntitySet.FindAsync(entity) != null) return true;
             return false;
         }
 
         public async Task<bool> ExistsById(object id)
         {
-            if(await EntitySet.FindAsync(id)!= null) return true;
+            if (await EntitySet.FindAsync(id) != null) return true;
             return false;
         }
 

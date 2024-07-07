@@ -21,9 +21,9 @@ namespace DesafioPitang.WebApi.Controllers
             throw new NotImplementedException();
         }
 
-        [HttpPatch("Update")]
+        [HttpPatch("Update/Status")]
         [RequiredTransaction]
-        public async Task<AppointmentDTO> Update([FromBody] AppointmentStatusUpdateModel statusModel)
+        public async Task<AppointmentDTO> UpdateStatus([FromBody] AppointmentStatusUpdateModel statusModel)
         {
             throw new NotImplementedException();
         }
