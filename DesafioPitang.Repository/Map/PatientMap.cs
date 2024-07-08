@@ -14,7 +14,8 @@ namespace DesafioPitang.Repository.Map
 
             builder.Property(p => p.Id)
                 .HasColumnName("id_paciente")
-                .IsRequired();
+                .IsRequired()
+                .ValueGeneratedOnAdd();
 
             builder.Property(p => p.Name)
                 .HasColumnName("dsc_nome")
@@ -30,8 +31,7 @@ namespace DesafioPitang.Repository.Map
 
             builder.HasMany(p => p.Appointments)
                    .WithOne(a => a.Patient)
-                   .HasForeignKey(a => a.PatientId)
-                   .HasConstraintName("fk_agendamento_paciente");
+                   .HasForeignKey(a => a.PatientId);
         }
     }
 }

@@ -13,20 +13,19 @@ namespace DesafioPitang.Repository.Repositories
 
         public async Task<Appointment> ChangeStatus(AppointmentStatusUpdateModel statusModel)
         {
-            var appointment = await GetById(statusModel.Id);
+            var appointment = await EntitySet.Include(appointment => appointment.Patient)
+                                             .FirstAsync(a => a.Id==a.Id);
             appointment.Status = statusModel.Status;
             return appointment;
         }
 
         public async Task<List<Appointment>> GetAllByDate(DateTime date)
         {
-            var query = EntitySet.Where(appointment => appointment.Date == date.Date);
+            var query = EntitySet.Include(appointment => appointment.Patient)
+                                  .Where(appointment => appointment.Date == date.Date);
             return await query.ToListAsync();
         }
 
-        public Task<List<Appointment>> GetAllByDatetime(DateTime date)
-        {
-            throw new NotImplementedException();
-        }
+        public Task<List<Appointment>> GetAll() => EntitySet.Include(appointment => appointment.Patient).ToListAsync();
     }
 }

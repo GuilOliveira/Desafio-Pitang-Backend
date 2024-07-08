@@ -23,7 +23,7 @@ namespace DesafioPitang.Business.Businesses
                 Date = appointment.Date,
                 Time = appointment.Time,
                 Status = appointment.Status,
-                PatientName = appointment.Patient.Name
+                PatientName = appointment.Patient?.Name
             }).ToList();
         }
 
@@ -36,7 +36,7 @@ namespace DesafioPitang.Business.Businesses
                 Date = appointment.Date,
                 Time = appointment.Time,
                 Status = appointment.Status,
-                PatientName = appointment.Patient.Name
+                PatientName = appointment.Patient?.Name
             }).ToList();
         }
 
@@ -49,7 +49,7 @@ namespace DesafioPitang.Business.Businesses
                 Date = appointment.Date,
                 Time = appointment.Time,
                 Status = appointment.Status,
-                PatientName = appointment.Patient.Name
+                PatientName = appointment.Patient?.Name
             };
         }
     }

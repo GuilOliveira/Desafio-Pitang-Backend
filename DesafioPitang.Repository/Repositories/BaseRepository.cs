@@ -69,7 +69,5 @@ namespace DesafioPitang.Repository.Repositories
             if (await EntitySet.FindAsync(id) != null) return true;
             return false;
         }
-
-
     }
 }
