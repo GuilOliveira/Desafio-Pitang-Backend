@@ -14,7 +14,8 @@ namespace DesafioPitang.Repository.Map
 
             builder.Property(a => a.Id)
                 .HasColumnName("id_agendamento")
-                .IsRequired();
+                .IsRequired()
+                .ValueGeneratedOnAdd();
 
             builder.Property(a => a.PatientId)
                 .HasColumnName("id_paciente")
