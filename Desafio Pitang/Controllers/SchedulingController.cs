@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DesafioPitang.WebApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class SchedulingController : ControllerBase
     {
         private readonly ISchedulingBusiness _schedulingBusiness;
