@@ -17,6 +17,15 @@ namespace DesafioPitang.WebApi
         {
             services.AddControllers();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder => builder
+                        .AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+            });
+
             services.AddDependencyInjectionConfiguration(Configuration);
 
             services.AddDatabaseConfiguration(Configuration);
@@ -50,6 +59,7 @@ namespace DesafioPitang.WebApi
                 c.RoutePrefix = string.Empty;
             });
 
+            app.UseCors("AllowAll");
             app.UseRouting();
 
             app.UseAuthentication();
