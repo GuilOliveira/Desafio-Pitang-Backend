@@ -19,13 +19,20 @@ namespace DesafioPitang.Repository.Repositories
             return appointment;
         }
 
-        public async Task<List<Appointment>> GetAllByDate(DateTime date)
+        public async Task<List<Appointment>> GetAllByDate(DateTime initialDate, DateTime finalDate)
         {
             var query = EntitySet.Include(appointment => appointment.Patient)
-                                  .Where(appointment => appointment.Date == date.Date);
+                                  .Where(appointment => (appointment.Date >= initialDate.Date &&
+                                                        appointment.Date <= finalDate.Date))
+                                  .OrderBy(appointment => appointment.Date);
             return await query.ToListAsync();
         }
 
-        public Task<List<Appointment>> GetAll() => EntitySet.Include(appointment => appointment.Patient).ToListAsync();
+        public new Task<List<Appointment>> GetAll()
+        {
+            return EntitySet.Include(appointment => appointment.Patient)
+                .OrderBy(appointment => appointment.Date)
+                .ToListAsync();
+        }
     }
 }

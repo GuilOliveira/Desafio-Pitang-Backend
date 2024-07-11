@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DesafioPitang.WebApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AppointmentController : ControllerBase
     {
         private readonly IAppointmentBusiness _appointmentBusiness;
@@ -16,15 +16,15 @@ namespace DesafioPitang.WebApi.Controllers
             _appointmentBusiness = appointmentBusiness;
         }
         [HttpGet("GetAll")]
-        public async Task<List<AppointmentDTO>> GetAll()
+        public async Task<List<List<AppointmentDTO>>> GetAll()
         {
             return await _appointmentBusiness.GetAll();
         }
 
-        [HttpGet("GetByDate/{date}")]
-        public async Task<List<AppointmentDTO>> GetByDate(DateTime date)
+        [HttpGet("GetByDate")]
+        public async Task<List<List<AppointmentDTO>>> GetByDate([FromQuery] DateTime initialDate, [FromQuery] DateTime finalDate)
         {
-            return await _appointmentBusiness.GetByDate(date);
+            return await _appointmentBusiness.GetByDate(initialDate, finalDate);
         }
 
         [HttpPatch("Update/Status")]

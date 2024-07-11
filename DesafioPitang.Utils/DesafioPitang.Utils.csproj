@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DesafioPitang.Entities\DesafioPitang.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Messages\InfraMessages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
