@@ -14,7 +14,7 @@ namespace DesafioPitang.Repository.Repositories
         public async Task<Appointment> ChangeStatus(AppointmentStatusUpdateModel statusModel)
         {
             var appointment = await EntitySet.Include(appointment => appointment.Patient)
-                                             .FirstAsync(a => a.Id==a.Id);
+                                             .FirstAsync(a => a.Id== statusModel.Id);
             appointment.Status = statusModel.Status;
             return appointment;
         }
