@@ -61,6 +61,7 @@ namespace DesafioPitang.WebApi.Middlewares
 
             response.ContentType = "application/json";
 
+            response.StatusCode = 500;
             await response.WriteAsync(JsonConvert.SerializeObject(new DefaultResponse(HttpStatusCode.InternalServerError, GetMessages(exception))));
         }
         private static List<string> GetMessages(Exception exception)
