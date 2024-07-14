@@ -33,5 +33,13 @@ namespace DesafioPitang.WebApi.Controllers
         {
             return await _appointmentBusiness.UpdateStatus(statusModel);
         }
+
+        [HttpDelete("Delete")]
+        [RequiredTransaction]
+        public async Task<ActionResult> DeleteById([FromQuery] int id)
+        {
+            await _appointmentBusiness.DeleteById(id);
+            return NoContent();
+        }
     }
 }

@@ -14,6 +14,11 @@ namespace DesafioPitang.Business.Businesses
             _appointmentRepository = appointmentRepository;
         }
 
+        public async Task DeleteById(int id)
+        {
+            await _appointmentRepository.DeleteById(id);
+        }
+
         public async Task<List<List<AppointmentDTO>>> GetAll()
         {
             var allAppointments = await _appointmentRepository.GetAll();
