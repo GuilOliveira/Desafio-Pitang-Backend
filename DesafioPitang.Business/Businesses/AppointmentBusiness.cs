@@ -3,6 +3,7 @@ using DesafioPitang.Entities.DTOs;
 using DesafioPitang.Entities.Models;
 using DesafioPitang.Repository.Interface.IRepositories;
 using DesafioPitang.Utils.Helpers;
+using DesafioPitang.Validators;
 
 namespace DesafioPitang.Business.Businesses
 {
@@ -16,6 +17,8 @@ namespace DesafioPitang.Business.Businesses
 
         public async Task DeleteById(int id)
         {
+            AppointmentValidator.EnsureAppointmentExists(await _appointmentRepository.ExistsById(id));
+
             await _appointmentRepository.DeleteById(id);
         }
 
@@ -28,12 +31,17 @@ namespace DesafioPitang.Business.Businesses
 
         public async Task<List<List<AppointmentDTO>>> GetByDate(DateTime initialDate, DateTime finalDate)
         {
+            AppointmentValidator.ValidateGetByDate(initialDate, finalDate);
+
             var appointmentsByDay = await _appointmentRepository.GetAllByDate(initialDate, finalDate);
             return GroupEntities.GroupAppointmentsByDate(appointmentsByDay);
         }
 
         public async Task<AppointmentDTO> UpdateStatus(AppointmentStatusUpdateModel statusModel)
         {
+            AppointmentValidator.EnsureAppointmentExists(await _appointmentRepository.ExistsById(statusModel.Id));
+            AppointmentValidator.ValidateStatusChange(statusModel);
+
             var appointment = await _appointmentRepository.ChangeStatus(statusModel);
             return new AppointmentDTO
             {
