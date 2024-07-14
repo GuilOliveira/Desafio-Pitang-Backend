@@ -10,6 +10,7 @@
     <ProjectReference Include="..\DesafioPitang.Business.Interface\DesafioPitang.Business.Interface.csproj" />
     <ProjectReference Include="..\DesafioPitang.Repository.Interface\DesafioPitang.Repository.Interface.csproj" />
     <ProjectReference Include="..\DesafioPitang.Utils\DesafioPitang.Utils.csproj" />
+    <ProjectReference Include="..\DesafioPitang.Validators\DesafioPitang.Validators.csproj" />
   </ItemGroup>
 
 </Project>
