@@ -8,15 +8,16 @@ namespace DesafioPitang.Utils.Helpers
         public static List<List<AppointmentDTO>> GroupAppointmentsByDate(IEnumerable<Appointment> appointments)
         {
             return appointments
-                .GroupBy(a => a.Date.Date)
-                .Select(g => g.Select(a => new AppointmentDTO
+                .GroupBy(appointment => appointment.Date.Date)
+                .Select(group => group.Select(appointment => new AppointmentDTO
                 {
-                    Id = a.Id,
-                    Date = a.Date,
-                    Time = a.Time,
-                    Status = a.Status,
-                    PatientName = a.Patient?.Name
-                }).ToList())
+                    Id = appointment.Id,
+                    Date = appointment.Date,
+                    Time = appointment.Time,
+                    Status = appointment.Status,
+                    PatientName = appointment.Patient?.Name
+                }
+                ).OrderBy(appointment => appointment.Time).ToList())
                 .ToList();
         }
     }

@@ -61,7 +61,7 @@ namespace DesafioPitang.WebApi.Middlewares
 
             response.ContentType = "application/json";
 
-            response.StatusCode = 500;
+            response.StatusCode = 400;
             await response.WriteAsync(JsonConvert.SerializeObject(new DefaultResponse(HttpStatusCode.InternalServerError, GetMessages(exception))));
         }
         private static List<string> GetMessages(Exception exception)
@@ -72,6 +72,9 @@ namespace DesafioPitang.WebApi.Middlewares
             {
                 case BusinessException:
                     messages.Add(exception.Message);
+                    break;
+                case BusinessListException:
+                    messages = ((BusinessListException)exception).Messages;
                     break;
                 default:
                     messages.Add(string.Format(InfraMessages.UnexpectedError));
