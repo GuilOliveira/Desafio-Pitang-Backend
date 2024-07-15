@@ -70,6 +70,33 @@ namespace DesafioPitang.Utils.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O nome do paciente deve ser inserido..
+        /// </summary>
+        public static string EmptySchedulePatientName {
+            get {
+                return ResourceManager.GetString("EmptySchedulePatientName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Não existem mais vagas disponíveis para este dia..
+        /// </summary>
+        public static string FullScheduleDate {
+            get {
+                return ResourceManager.GetString("FullScheduleDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Não existem mais vagas disponíveis para este horário..
+        /// </summary>
+        public static string FullScheduleTime {
+            get {
+                return ResourceManager.GetString("FullScheduleTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a O status &quot;{0}&quot; é inválido..
         /// </summary>
         public static string InvalidAppointmentStatus {
@@ -84,6 +111,51 @@ namespace DesafioPitang.Utils.Messages {
         public static string InvalidDateRange {
             get {
                 return ResourceManager.GetString("InvalidDateRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Agendamentos só podem ser feitos a partir da data atual..
+        /// </summary>
+        public static string InvalidScheduleAppointmentDate {
+            get {
+                return ResourceManager.GetString("InvalidScheduleAppointmentDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A data de nascimento deve ser anterior ou igual a o dia de hoje..
+        /// </summary>
+        public static string InvalidScheduleBirthdate {
+            get {
+                return ResourceManager.GetString("InvalidScheduleBirthdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O agendamento deve ocorrer entre 05:00 e 20:00..
+        /// </summary>
+        public static string InvalidScheduleTime {
+            get {
+                return ResourceManager.GetString("InvalidScheduleTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O intervalo de tempo entre um agendamento e outro é de 1 hora..
+        /// </summary>
+        public static string InvalidScheduleTimeRange {
+            get {
+                return ResourceManager.GetString("InvalidScheduleTimeRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O nome do paciente não pode conter números..
+        /// </summary>
+        public static string PatientNameWithNumbers {
+            get {
+                return ResourceManager.GetString("PatientNameWithNumbers", resourceCulture);
             }
         }
     }

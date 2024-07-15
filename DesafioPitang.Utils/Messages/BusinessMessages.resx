@@ -120,10 +120,34 @@
   <data name="ElementNotFound" xml:space="preserve">
     <value>O registro não foi encontrado.</value>
   </data>
+  <data name="EmptySchedulePatientName" xml:space="preserve">
+    <value>O nome do paciente deve ser inserido.</value>
+  </data>
+  <data name="FullScheduleDate" xml:space="preserve">
+    <value>Não existem mais vagas disponíveis para este dia.</value>
+  </data>
+  <data name="FullScheduleTime" xml:space="preserve">
+    <value>Não existem mais vagas disponíveis para este horário.</value>
+  </data>
   <data name="InvalidAppointmentStatus" xml:space="preserve">
     <value>O status "{0}" é inválido.</value>
   </data>
   <data name="InvalidDateRange" xml:space="preserve">
     <value>A data inicial deve ser menor ou igual a data final.</value>
+  </data>
+  <data name="InvalidScheduleAppointmentDate" xml:space="preserve">
+    <value>Agendamentos só podem ser feitos a partir da data atual.</value>
+  </data>
+  <data name="InvalidScheduleBirthdate" xml:space="preserve">
+    <value>A data de nascimento deve ser anterior ou igual a o dia de hoje.</value>
+  </data>
+  <data name="InvalidScheduleTime" xml:space="preserve">
+    <value>O agendamento deve ocorrer entre 05:00 e 20:00.</value>
+  </data>
+  <data name="InvalidScheduleTimeRange" xml:space="preserve">
+    <value>O intervalo de tempo entre um agendamento e outro é de 1 hora.</value>
+  </data>
+  <data name="PatientNameWithNumbers" xml:space="preserve">
+    <value>O nome do paciente não pode conter números.</value>
   </data>
 </root>

@@ -34,5 +34,20 @@ namespace DesafioPitang.Repository.Repositories
                 .OrderBy(appointment => appointment.Date)
                 .ToListAsync();
         }
+
+        public async Task<int> GetAmountByDate(DateTime date)
+        {
+            var query = EntitySet.Where(appointment => appointment.Date.Date == date.Date);
+                                  
+            return await query.CountAsync();
+
+        }
+
+        public async Task<int> GetAmountByTime(DateTime date, TimeSpan time)
+        {
+            var query = EntitySet.Where(appointment => appointment.Date.Date == date.Date && 
+                                                       appointment.Time == time);
+            return await query.CountAsync();
+        }
     }
 }

@@ -8,5 +8,7 @@ namespace DesafioPitang.Repository.Interface.IRepositories
         Task<List<Appointment>> GetAllByDate(DateTime initialDate, DateTime finalDate);
         Task<List<Appointment>> GetAll();
         Task<Appointment> ChangeStatus(AppointmentStatusUpdateModel statusModel);
+        Task<int> GetAmountByDate(DateTime date);
+        Task<int> GetAmountByTime(DateTime date, TimeSpan time);
     }
 }

@@ -3,6 +3,7 @@ using DesafioPitang.Entities.DTOs;
 using DesafioPitang.Entities.Entities;
 using DesafioPitang.Entities.Models;
 using DesafioPitang.Repository.Interface.IRepositories;
+using DesafioPitang.Validators;
 
 namespace DesafioPitang.Business.Businesses
 {
@@ -17,6 +18,11 @@ namespace DesafioPitang.Business.Businesses
         }
         public async Task<AppointmentDTO> Post(SchedulingModel schedulingModel)
         {
+            ScheduleValidator.ValidatePostFields(schedulingModel);
+            ScheduleValidator.ValidatePostAvailability(
+                await _appointmentRepository.GetAmountByDate(schedulingModel.AppointmentDate),
+                await _appointmentRepository.GetAmountByTime(schedulingModel.AppointmentDate, schedulingModel.AppointmentTime));
+
             var patient = await _patientRepository.GetByName(schedulingModel.PatientName);
             if (patient == null)
             {
