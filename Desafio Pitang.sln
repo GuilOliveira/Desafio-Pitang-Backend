@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioPitang.Entities", "D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioPitang.Validators", "DesafioPitang.Validators\DesafioPitang.Validators.csproj", "{48A5B17F-FF97-41E9-AE57-EB9DCF07AD9D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioPitang.UnitTests", "DesafioPitang.UnitTests\DesafioPitang.UnitTests.csproj", "{B956B3E7-9C9E-464F-BE07-4D297F1F860A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioPitang.UnitTests", "DesafioPitang.UnitTests\DesafioPitang.UnitTests.csproj", "{CBE5AB31-3868-41F8-A160-838C6EE11CA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,10 +59,10 @@ Global
 		{48A5B17F-FF97-41E9-AE57-EB9DCF07AD9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48A5B17F-FF97-41E9-AE57-EB9DCF07AD9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48A5B17F-FF97-41E9-AE57-EB9DCF07AD9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B956B3E7-9C9E-464F-BE07-4D297F1F860A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B956B3E7-9C9E-464F-BE07-4D297F1F860A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B956B3E7-9C9E-464F-BE07-4D297F1F860A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B956B3E7-9C9E-464F-BE07-4D297F1F860A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBE5AB31-3868-41F8-A160-838C6EE11CA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBE5AB31-3868-41F8-A160-838C6EE11CA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBE5AB31-3868-41F8-A160-838C6EE11CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBE5AB31-3868-41F8-A160-838C6EE11CA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
