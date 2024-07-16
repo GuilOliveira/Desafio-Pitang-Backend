@@ -24,7 +24,7 @@ namespace DesafioPitang.Business.Businesses
                 await _appointmentRepository.GetAmountByTime(schedulingModel.AppointmentDate, schedulingModel.AppointmentTime));
 
             var patient = await _patientRepository.GetByName(schedulingModel.PatientName);
-            if (patient == null)
+            if (patient == null || patient.BirthDate != schedulingModel.PatientBirthDate)
             {
                 patient = await _patientRepository.Insert(new Patient
                 {

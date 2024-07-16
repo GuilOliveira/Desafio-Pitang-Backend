@@ -1,4 +1,6 @@
 ﻿using DesafioPitang.Repository;
+using DesafioPitang.Repository.Interface.IRepositories;
+using DesafioPitang.Repository.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
@@ -24,6 +26,8 @@ namespace DesafioPitang.UnitTests
         public void OneTimeSetUpBase()
         {
             ConfigureInMemoryDataBase();
+            Register<IAppointmentRepository, AppointmentRepository>();
+            Register<IPatientRepository, PatientRepository>();
             DatabaseSeeder.Seed(_context);
         }
 
