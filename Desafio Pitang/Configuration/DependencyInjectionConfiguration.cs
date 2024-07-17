@@ -5,6 +5,7 @@ using DesafioPitang.Repository;
 using DesafioPitang.Repository.Interface;
 using DesafioPitang.Repository.Interface.IRepositories;
 using DesafioPitang.WebApi.Middlewares;
+using DesafioPitang.Utils.UserContext;
 
 namespace DesafioPitang.WebApi.Configuration
 {
@@ -17,11 +18,13 @@ namespace DesafioPitang.WebApi.Configuration
             InjectRepository(services);
 
             services.AddScoped<ITransactionManager, TransactionManager> ();
+            services.AddScoped<IUserContext, UserContext> ();
         }
 
         private static void InjectMiddleware(IServiceCollection services)
         {
             services.AddTransient<ApiMiddleware>();
+            services.AddTransient<UserContextMiddleware>();
         }
 
         private static void InjectBusiness(IServiceCollection services)
