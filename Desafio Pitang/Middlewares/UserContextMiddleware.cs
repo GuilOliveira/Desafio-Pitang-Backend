@@ -1,5 +1,5 @@
-﻿using DesafioPitang.Utils.UserContext;
-using DesafioPitang.Utils.Extensions;
+﻿using DesafioPitang.Utils.Extensions;
+using DesafioPitang.Utils.UserContext;
 using System.Collections;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -74,12 +74,12 @@ namespace DesafioPitang.WebApi.Middlewares
             {
                 var userId = securityToken.Claims.GetClaimValue(ClaimTypes.Sid);
                 var userName = securityToken.Claims.GetClaimValue(ClaimTypes.Name);
-                var roles = securityToken.Claims.GetValuesOfType(ClaimTypes.Role);
+                var role = securityToken.Claims.GetValuesOfType(ClaimTypes.Role);
                 var email = securityToken.Claims.GetClaimValue(ClaimTypes.Email);
 
                 _userContext.AddData("Id", userId);
                 _userContext.AddData("Name", userName);
-                _userContext.AddData("Role", roles);
+                _userContext.AddData("Role", role);
                 _userContext.AddData("Email", email);
             }
         }

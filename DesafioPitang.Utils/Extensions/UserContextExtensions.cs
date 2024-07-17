@@ -1,6 +1,5 @@
 ﻿using DesafioPitang.Utils.UserContext;
 using System.Collections;
-using System.Security.Claims;
 
 namespace DesafioPitang.Utils.Extensions
 {
@@ -8,9 +7,9 @@ namespace DesafioPitang.Utils.Extensions
     {
         public static string Profile(this IUserContext userContext)
         {
-            var role = userContext.GetClaimValue<string>("Role");
+            var roles = userContext.GetClaimValue<IEnumerable<string>>("Role");
 
-            return role;
+            return roles?.FirstOrDefault() ?? string.Empty;
         }
         public static string Name(this IUserContext userContext)
         {

@@ -16,7 +16,7 @@ namespace DesafioPitang.WebApi.Controllers
         }
         [HttpPost("Register")]
         [RequiredTransaction]
-        public async Task<ActionResult> Post([FromBody] UserRegistrationModel registrationModel)
+        public async Task<ActionResult> Register([FromBody] UserRegistrationModel registrationModel)
         {
             await _userBusiness.Register(registrationModel);
             return Ok();

@@ -39,7 +39,7 @@ namespace DesafioPitang.UnitTests
         {
             // Arrange and Act
             await _business.DeleteById(id);
-            var isDeleted = !await _repository.ExistsById(id);
+            var isDeleted = await _repository.GetById(id)==null;
 
             // Assert
             Assert.That(isDeleted, Is.True);

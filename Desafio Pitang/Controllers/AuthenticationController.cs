@@ -15,7 +15,7 @@ namespace DesafioPitang.WebApi.Controllers
         {
             _authenticationBusiness = authenticationBusiness;
         }
-        [HttpPost("Login")]
+        [HttpGet("Login")]
         public async Task<UserTokenDTO> Login([FromBody]LoginModel login)
         {
             return await _authenticationBusiness.Login(login);
