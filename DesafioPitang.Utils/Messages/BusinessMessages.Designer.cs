@@ -115,6 +115,15 @@ namespace DesafioPitang.Utils.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Email e(ou) senha inválidos..
+        /// </summary>
+        public static string InvalidLogin {
+            get {
+                return ResourceManager.GetString("InvalidLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Agendamentos só podem ser feitos a partir da data atual..
         /// </summary>
         public static string InvalidScheduleAppointmentDate {

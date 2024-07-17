@@ -16,8 +16,7 @@ namespace DesafioPitang.WebApi.Controllers
         {
             _appointmentBusiness = appointmentBusiness;
         }
-        [HttpGet("GetAll")]
-        [Authorize]
+        [HttpGet("GetAll")]        
         public async Task<List<List<AppointmentDTO>>> GetAll()
         {
             return await _appointmentBusiness.GetAll();
