@@ -1,6 +1,7 @@
 ﻿using DesafioPitang.Business.Interface.IBusinesses;
 using DesafioPitang.Entities.DTOs;
 using DesafioPitang.Entities.Entities;
+using DesafioPitang.Entities.Models;
 using DesafioPitang.Repository.Interface.IRepositories;
 using DesafioPitang.Utils.Configuration;
 using DesafioPitang.Utils.Extensions;
@@ -29,10 +30,10 @@ namespace DesafioPitang.Business.Businesses
             _userContext = userContext;
         }
 
-        public async Task<UserTokenDTO> Login(string email, string password)
+        public async Task<UserTokenDTO> Login(LoginModel login)
         {
-            var isUserValid = await Authenticate(email, password);
-            var user = await _userRepository.GetByEmail(email);
+            var isUserValid = await Authenticate(login.Email, login.Password);
+            var user = await _userRepository.GetByEmail(login.Email);
             string token;
             string refreshToken;
 
@@ -42,7 +43,7 @@ namespace DesafioPitang.Business.Businesses
                 refreshToken = GenerateRefreshToken(user);
             }
             else
-                throw new UnauthorizedAccessException(BusinessMessages.InvalidLogin);
+                throw new UnauthorizedAccessException(BusinessMessages.InvalidLoginFields);
 
             return new UserTokenDTO(token, refreshToken);
         }

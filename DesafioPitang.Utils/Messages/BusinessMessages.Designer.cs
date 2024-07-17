@@ -117,9 +117,9 @@ namespace DesafioPitang.Utils.Messages {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Email e(ou) senha inválidos..
         /// </summary>
-        public static string InvalidLogin {
+        public static string InvalidLoginFields {
             get {
-                return ResourceManager.GetString("InvalidLogin", resourceCulture);
+                return ResourceManager.GetString("InvalidLoginFields", resourceCulture);
             }
         }
         
