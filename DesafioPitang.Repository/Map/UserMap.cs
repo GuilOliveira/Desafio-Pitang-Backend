@@ -8,7 +8,7 @@ namespace DesafioPitang.Repository.Map
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.ToTable("tg_usuario");
+            builder.ToTable("tb_usuario");
 
             builder.HasKey(u => u.Id);
 
