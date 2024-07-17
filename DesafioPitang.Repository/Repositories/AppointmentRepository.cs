@@ -31,7 +31,7 @@ namespace DesafioPitang.Repository.Repositories
         public new Task<List<Appointment>> GetAll()
         {
             return EntitySet.Include(appointment => appointment.Patient)
-                .OrderBy(appointment => appointment.Date)
+                //.OrderBy(appointment => appointment.Date)
                 .ToListAsync();
         }
 

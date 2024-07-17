@@ -2,6 +2,7 @@
 using DesafioPitang.Entities.DTOs;
 using DesafioPitang.Entities.Models;
 using DesafioPitang.Utils.Attributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DesafioPitang.WebApi.Controllers
@@ -16,6 +17,7 @@ namespace DesafioPitang.WebApi.Controllers
             _appointmentBusiness = appointmentBusiness;
         }
         [HttpGet("GetAll")]
+        [Authorize]
         public async Task<List<List<AppointmentDTO>>> GetAll()
         {
             return await _appointmentBusiness.GetAll();
@@ -36,6 +38,7 @@ namespace DesafioPitang.WebApi.Controllers
 
         [HttpDelete("Delete")]
         [RequiredTransaction]
+
         public async Task<ActionResult> DeleteById([FromQuery] int id)
         {
             await _appointmentBusiness.DeleteById(id);
