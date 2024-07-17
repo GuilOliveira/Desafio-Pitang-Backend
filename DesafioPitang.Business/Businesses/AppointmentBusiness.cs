@@ -3,6 +3,7 @@ using DesafioPitang.Entities.DTOs;
 using DesafioPitang.Entities.Models;
 using DesafioPitang.Repository.Interface.IRepositories;
 using DesafioPitang.Utils.Helpers;
+using DesafioPitang.Utils.UserContext;
 using DesafioPitang.Validators;
 
 namespace DesafioPitang.Business.Businesses
@@ -10,9 +11,11 @@ namespace DesafioPitang.Business.Businesses
     public class AppointmentBusiness : IAppointmentBusiness
     {
         private readonly IAppointmentRepository _appointmentRepository;
-        public AppointmentBusiness(IAppointmentRepository appointmentRepository)
+        private readonly IUserContext _userContext;
+        public AppointmentBusiness(IAppointmentRepository appointmentRepository, IUserContext userContext)
         {
             _appointmentRepository = appointmentRepository;
+            _userContext = userContext;
         }
 
         public async Task DeleteById(int id)
@@ -49,7 +52,8 @@ namespace DesafioPitang.Business.Businesses
                 Date = appointment.Date,
                 Time = appointment.Time,
                 Status = appointment.Status,
-                PatientName = appointment.Patient?.Name
+                PatientName = appointment.Patient?.Name,
+                UserId = appointment.Patient.UserId
             };
         }
     }

@@ -10,9 +10,9 @@ namespace DesafioPitang.WebApi.Middlewares
     {
         private readonly IUserContext _userContext;
 
-        public UserContextMiddleware(IUserContext usuarioContexto)
+        public UserContextMiddleware(IUserContext userContext)
         {
-            _userContext = usuarioContexto;
+            _userContext = userContext;
         }
 
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
@@ -72,13 +72,15 @@ namespace DesafioPitang.WebApi.Middlewares
 
             if (securityToken != null && securityToken.Claims.Any())
             {
+                var userId = securityToken.Claims.GetClaimValue(ClaimTypes.Sid);
                 var userName = securityToken.Claims.GetClaimValue(ClaimTypes.Name);
                 var roles = securityToken.Claims.GetValuesOfType(ClaimTypes.Role);
-                var login = securityToken.Claims.GetClaimValue("login");
+                var email = securityToken.Claims.GetClaimValue(ClaimTypes.Email);
 
-                _userContext.AddData("userName", userName);
-                _userContext.AddData("roles", roles);
-                _userContext.AddData("login", login);
+                _userContext.AddData("Id", userId);
+                _userContext.AddData("Name", userName);
+                _userContext.AddData("Role", roles);
+                _userContext.AddData("Email", email);
             }
         }
 

@@ -50,15 +50,15 @@ namespace DesafioPitang.Business.Businesses
 
         public async Task<UserTokenDTO> RefreshToken()
         {
-            var login = UserContextExtensions.Login(_userContext);
-            var usuario = await _userRepository.GetByEmail(login);
+            var email = UserContextExtensions.Email(_userContext);
+            var user = await _userRepository.GetByEmail(email);
             string token;
             string refreshToken;
 
-            if (usuario != null)
+            if (user != null)
             {
-                token = GenerateToken(usuario);
-                refreshToken = GenerateRefreshToken(usuario);
+                token = GenerateToken(user);
+                refreshToken = GenerateRefreshToken(user);
             }
             else
                 throw new UnauthorizedAccessException();
