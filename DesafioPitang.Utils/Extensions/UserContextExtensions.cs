@@ -6,16 +6,29 @@ namespace DesafioPitang.Utils.Extensions
 {
     public static class UserContextExtensions
     {
-        public static string Login(this IUserContext userContext)
+        public static string Profile(this IUserContext userContext)
         {
-            var login = userContext.GetClaimValue<string>("login");
+            var role = userContext.GetClaimValue<string>("Role");
+
+            return role;
+        }
+        public static string Name(this IUserContext userContext)
+        {
+            var login = userContext.GetClaimValue<string>("Name");
 
             return login ?? Environment.MachineName;
         }
 
+        public static string Email(this IUserContext userContext)
+        {
+            var email = userContext.GetClaimValue<string>("Email");
+
+            return email;
+        }
+
         public static int Id(this IUserContext userContext)
         {
-            int.TryParse(userContext.GetClaimValue<string>(ClaimTypes.Sid), out var id);
+            int.TryParse(userContext.GetClaimValue<string>("Id"), out var id);
 
             return id;
         }

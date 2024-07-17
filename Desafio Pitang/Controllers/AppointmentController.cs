@@ -16,7 +16,7 @@ namespace DesafioPitang.WebApi.Controllers
         {
             _appointmentBusiness = appointmentBusiness;
         }
-        [HttpGet("GetAll")]        
+        [HttpGet("GetAll")]
         public async Task<List<List<AppointmentDTO>>> GetAll()
         {
             return await _appointmentBusiness.GetAll();
@@ -30,6 +30,7 @@ namespace DesafioPitang.WebApi.Controllers
 
         [HttpPatch("Update/Status")]
         [RequiredTransaction]
+        [Authorize]
         public async Task<AppointmentDTO> UpdateStatus([FromBody] AppointmentStatusUpdateModel statusModel)
         {
             return await _appointmentBusiness.UpdateStatus(statusModel);
@@ -37,6 +38,7 @@ namespace DesafioPitang.WebApi.Controllers
 
         [HttpDelete("Delete")]
         [RequiredTransaction]
+        [Authorize]
 
         public async Task<ActionResult> DeleteById([FromQuery] int id)
         {
