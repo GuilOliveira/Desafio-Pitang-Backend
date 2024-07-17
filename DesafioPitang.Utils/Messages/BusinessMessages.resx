@@ -135,6 +135,9 @@
   <data name="InvalidDateRange" xml:space="preserve">
     <value>A data inicial deve ser menor ou igual a data final.</value>
   </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>Email e(ou) senha inválidos.</value>
+  </data>
   <data name="InvalidScheduleAppointmentDate" xml:space="preserve">
     <value>Agendamentos só podem ser feitos a partir da data atual.</value>
   </data>
