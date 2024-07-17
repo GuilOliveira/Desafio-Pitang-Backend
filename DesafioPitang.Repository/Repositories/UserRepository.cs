@@ -11,7 +11,6 @@ namespace DesafioPitang.Repository.Repositories
         }
         public async Task<User> GetByEmail(string email)
         {
-            var a = await EntitySet.FirstOrDefaultAsync(user => user.Email == email);
             return await EntitySet.FirstOrDefaultAsync(user=>user.Email == email);
         }
     }

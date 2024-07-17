@@ -117,61 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ElementNotFound" xml:space="preserve">
-    <value>O registro não foi encontrado.</value>
+  <data name="EmailAlreadyExists" xml:space="preserve">
+    <value>Já existe uma conta registrada com este Email.</value>
   </data>
-  <data name="EmptySchedulePatientName" xml:space="preserve">
-    <value>O nome do paciente deve ser inserido.</value>
-  </data>
-  <data name="EmptyUserEmail" xml:space="preserve">
-    <value>O Email é um campo obrigatório.</value>
-  </data>
-  <data name="EmptyUserName" xml:space="preserve">
-    <value>O Nome de usuário deve ser inserido.</value>
-  </data>
-  <data name="EmptyUserPassword" xml:space="preserve">
-    <value>A Senha é um campo obrigatório.</value>
-  </data>
-  <data name="FullScheduleDate" xml:space="preserve">
-    <value>Não existem mais vagas disponíveis para este dia.</value>
-  </data>
-  <data name="FullScheduleTime" xml:space="preserve">
-    <value>Não existem mais vagas disponíveis para este horário.</value>
-  </data>
-  <data name="InvalidAppointmentStatus" xml:space="preserve">
-    <value>O status "{0}" é inválido.</value>
-  </data>
-  <data name="InvalidDateRange" xml:space="preserve">
-    <value>A data inicial deve ser menor ou igual a data final.</value>
-  </data>
-  <data name="InvalidLoginFields" xml:space="preserve">
-    <value>Email e(ou) senha inválidos.</value>
-  </data>
-  <data name="InvalidScheduleAppointmentDate" xml:space="preserve">
-    <value>Agendamentos só podem ser feitos a partir da data atual.</value>
-  </data>
-  <data name="InvalidScheduleBirthdate" xml:space="preserve">
-    <value>A data de nascimento deve ser anterior ou igual a o dia de hoje.</value>
-  </data>
-  <data name="InvalidScheduleTime" xml:space="preserve">
-    <value>O agendamento deve ocorrer entre 05:00 e 20:00.</value>
-  </data>
-  <data name="InvalidScheduleTimeRange" xml:space="preserve">
-    <value>O intervalo de tempo entre um agendamento e outro é de 1 hora.</value>
-  </data>
-  <data name="InvalidUserEmail" xml:space="preserve">
-    <value>O campo Email está inválido.</value>
-  </data>
-  <data name="InvalidUserProfile" xml:space="preserve">
-    <value>O perfil de usuário "{0}" é inválido.</value>
-  </data>
-  <data name="PatientNameWithNumbers" xml:space="preserve">
-    <value>O nome do paciente não pode conter números.</value>
-  </data>
-  <data name="ShortUserPassword" xml:space="preserve">
-    <value>A senha inserida é muito curta (mínimo 6 caracteres).</value>
-  </data>
-  <data name="UserNameWithNumbers" xml:space="preserve">
-    <value>O nome do usuario não pode conter números.</value>
+  <data name="InvalidUserOperation" xml:space="preserve">
+    <value>Este registro só pode ser modificado pelo criador ou um administrador.</value>
   </data>
 </root>

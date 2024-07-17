@@ -2,6 +2,8 @@
 using DesafioPitang.Entities.DTOs;
 using DesafioPitang.Entities.Models;
 using DesafioPitang.Repository.Interface.IRepositories;
+using DesafioPitang.Utils.Constants;
+using DesafioPitang.Utils.Extensions;
 using DesafioPitang.Utils.Helpers;
 using DesafioPitang.Utils.UserContext;
 using DesafioPitang.Validators;
@@ -20,7 +22,10 @@ namespace DesafioPitang.Business.Businesses
 
         public async Task DeleteById(int id)
         {
-            AppointmentValidator.EnsureAppointmentExists(await _appointmentRepository.ExistsById(id));
+            AppointmentValidator.EnsureAppointmentExists(await _appointmentRepository.GetById(id)!=null);
+            AppointmentValidator.EnsureUserIsAuthorized(currentUserId: UserContextExtensions.Id(_userContext),
+                                                        UserId: await _appointmentRepository.GetUserId(id),
+                                                        profile: UserContextExtensions.Profile(_userContext));
 
             await _appointmentRepository.DeleteById(id);
         }
@@ -42,8 +47,11 @@ namespace DesafioPitang.Business.Businesses
 
         public async Task<AppointmentDTO> UpdateStatus(AppointmentStatusUpdateModel statusModel)
         {
-            AppointmentValidator.EnsureAppointmentExists(await _appointmentRepository.ExistsById(statusModel.Id));
+            AppointmentValidator.EnsureAppointmentExists(await _appointmentRepository.GetById(statusModel.Id) !=null);
             AppointmentValidator.ValidateStatusChange(statusModel);
+            AppointmentValidator.EnsureUserIsAuthorized(currentUserId: UserContextExtensions.Id(_userContext),
+                                                        UserId: await _appointmentRepository.GetUserId(statusModel.Id),
+                                                        profile: UserContextExtensions.Profile(_userContext));
 
             var appointment = await _appointmentRepository.ChangeStatus(statusModel);
             return new AppointmentDTO

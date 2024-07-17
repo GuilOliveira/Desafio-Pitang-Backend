@@ -2,6 +2,7 @@
 using DesafioPitang.Entities.Entities;
 using DesafioPitang.Entities.Models;
 using DesafioPitang.Repository.Interface.IRepositories;
+using DesafioPitang.Validators;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -16,6 +17,9 @@ namespace DesafioPitang.Business.Businesses
         }
         public async Task Register(UserRegistrationModel userModel)
         {
+            UserValidator.ValidateRegisterFields(userModel);
+            UserValidator.ValidateEmailIsUnique(await _userRepository.GetByEmail(userModel.Email));
+            
             var user = new User
             {
                 Name = userModel.Name,

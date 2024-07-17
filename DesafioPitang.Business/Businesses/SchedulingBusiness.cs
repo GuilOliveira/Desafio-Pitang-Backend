@@ -3,6 +3,7 @@ using DesafioPitang.Entities.DTOs;
 using DesafioPitang.Entities.Entities;
 using DesafioPitang.Entities.Models;
 using DesafioPitang.Repository.Interface.IRepositories;
+using DesafioPitang.Utils.Constants;
 using DesafioPitang.Utils.Extensions;
 using DesafioPitang.Utils.UserContext;
 using DesafioPitang.Validators;
@@ -33,28 +34,27 @@ namespace DesafioPitang.Business.Businesses
                 await _appointmentRepository.GetAmountByDate(schedulingModel.AppointmentDate),
                 await _appointmentRepository.GetAmountByTime(schedulingModel.AppointmentDate, schedulingModel.AppointmentTime));
 
-            var id = UserContextExtensions.Id(_userContext);
-            var user = await _userRepository.GetById(id);
+            var user = await _userRepository.GetById(UserContextExtensions.Id(_userContext));
             var patient = await _patientRepository.GetByName(schedulingModel.PatientName);
 
             if (patient == null || 
                 patient.BirthDate != schedulingModel.PatientBirthDate || 
                 patient.UserId != user.Id )
-            {
-                patient = await _patientRepository.Insert(new Patient
                 {
-                    Name = schedulingModel.PatientName,
-                    BirthDate = schedulingModel.PatientBirthDate,
-                    CreatedAt = DateTime.Now,
-                    UserId = user.Id,
-                });
-            }
+                    patient = await _patientRepository.Insert(new Patient
+                    {
+                        Name = schedulingModel.PatientName,
+                        BirthDate = schedulingModel.PatientBirthDate,
+                        CreatedAt = DateTime.Now,
+                        UserId = user.Id,
+                    });
+                }
             var appointment = await _appointmentRepository.Insert(new Appointment
             {
                 Date = schedulingModel.AppointmentDate,
                 Time = schedulingModel.AppointmentTime,
                 CreatedAt = DateTime.Now,
-                Status = "Waiting",
+                Status = AppointmentStatusConstants.WAITING,
                 PatientId = patient.Id,
                 Patient = patient
             });

@@ -70,6 +70,9 @@ namespace DesafioPitang.WebApi.Middlewares
 
             switch (exception)
             {
+                case BusinessAuthenticationException:
+                    messages.Add(exception.Message);
+                    break;
                 case BusinessException:
                     messages.Add(exception.Message);
                     break;
