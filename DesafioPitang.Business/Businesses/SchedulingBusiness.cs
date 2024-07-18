@@ -16,7 +16,7 @@ namespace DesafioPitang.Business.Businesses
         private readonly IPatientRepository _patientRepository;
         private readonly IUserRepository _userRepository;
         private readonly IUserContext _userContext;
-        public SchedulingBusiness(IPatientRepository patientRepository, 
+        public SchedulingBusiness(IPatientRepository patientRepository,
                                   IAppointmentRepository appointmentRepository,
                                   IUserContext userContext,
                                   IUserRepository userRepository)
@@ -37,18 +37,18 @@ namespace DesafioPitang.Business.Businesses
             var user = await _userRepository.GetById(UserContextExtensions.Id(_userContext));
             var patient = await _patientRepository.GetByName(schedulingModel.PatientName);
 
-            if (patient == null || 
-                patient.BirthDate != schedulingModel.PatientBirthDate || 
-                patient.UserId != user.Id )
+            if (patient == null ||
+                patient.BirthDate != schedulingModel.PatientBirthDate ||
+                patient.UserId != user.Id)
+            {
+                patient = await _patientRepository.Insert(new Patient
                 {
-                    patient = await _patientRepository.Insert(new Patient
-                    {
-                        Name = schedulingModel.PatientName,
-                        BirthDate = schedulingModel.PatientBirthDate,
-                        CreatedAt = DateTime.Now,
-                        UserId = user.Id,
-                    });
-                }
+                    Name = schedulingModel.PatientName,
+                    BirthDate = schedulingModel.PatientBirthDate,
+                    CreatedAt = DateTime.Now,
+                    UserId = user.Id,
+                });
+            }
             var appointment = await _appointmentRepository.Insert(new Appointment
             {
                 Date = schedulingModel.AppointmentDate,

@@ -1,6 +1,7 @@
 ﻿using DesafioPitang.Repository;
 using DesafioPitang.Repository.Interface.IRepositories;
 using DesafioPitang.Repository.Repositories;
+using DesafioPitang.Utils.UserContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
@@ -28,6 +29,8 @@ namespace DesafioPitang.UnitTests
             ConfigureInMemoryDataBase();
             Register<IAppointmentRepository, AppointmentRepository>();
             Register<IPatientRepository, PatientRepository>();
+            Register<IUserRepository, UserRepository>();
+            Register<IUserContext, UserContext>();
             DatabaseSeeder.Seed(_context);
         }
 

@@ -9,6 +9,32 @@ namespace DesafioPitang.UnitTests
     {
         public static void Seed(Context context)
         {
+            if (!context.Usuario.Any())
+            {
+                var users = new[]
+                {
+                new User
+                {
+                    Email = "gui@pitang.com",
+                    Name = "Guilherme",
+                    PasswordHash = new byte[64],
+                    PasswordSalt = new byte[128],
+                    Profile = "admin",
+                    CreatedAt = DateTime.Now
+                },
+                new User
+                {
+                    Email = "mariana@mail.com",
+                    Name = "Mariana",
+                    PasswordHash = new byte[64],
+                    PasswordSalt = new byte[128],
+                    Profile = "comum",
+                    CreatedAt = DateTime.Now
+                }
+            };
+
+                context.Usuario.AddRange(users);
+            }
             if (!context.Paciente.Any())
             {
                 var patients = new[]
