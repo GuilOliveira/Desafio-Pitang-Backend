@@ -4,7 +4,9 @@ using DesafioPitang.Repository;
 using DesafioPitang.Repository.Interface.IRepositories;
 using DesafioPitang.Repository.Repositories;
 using DesafioPitang.Utils.Exceptions;
+using DesafioPitang.Utils.Extensions;
 using DesafioPitang.Utils.Messages;
+using DesafioPitang.Utils.UserContext;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -14,6 +16,7 @@ namespace DesafioPitang.UnitTests
     {
         private IAppointmentBusiness _business;
         private IAppointmentRepository _repository;
+        private IUserContext _userContext;
 
         [SetUp]
         public void SetUp()
@@ -23,11 +26,17 @@ namespace DesafioPitang.UnitTests
                               .Options;
 
             _context = new Context(options);
+            _userContext = new UserContext();
+            RegisterObject(typeof(IUserContext), _userContext);
 
             _repository = new AppointmentRepository(_context);
             RegisterObject(typeof(IAppointmentRepository), _repository);
 
             Register<IAppointmentBusiness, AppointmentBusiness>();
+
+            var userContext = GetService<IUserContext>();
+            userContext.AddData("Id", "1");
+            userContext.AddData("Role", "admin");
 
             _business = GetService<IAppointmentBusiness>();
         }

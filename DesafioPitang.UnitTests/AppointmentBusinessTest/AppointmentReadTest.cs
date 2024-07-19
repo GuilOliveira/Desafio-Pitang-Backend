@@ -6,6 +6,8 @@ using DesafioPitang.Repository.Interface.IRepositories;
 using DesafioPitang.Repository.Repositories;
 using DesafioPitang.Utils.Exceptions;
 using DesafioPitang.Utils.Messages;
+using DesafioPitang.Utils.UserContext;
+using DesafioPitang.Utils.Extensions;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -15,6 +17,7 @@ namespace DesafioPitang.UnitTests
     {
         private IAppointmentBusiness _business;
         private IAppointmentRepository _repository;
+        private IUserContext _userContext;
 
         [SetUp]
         public void SetUp()
@@ -24,10 +27,12 @@ namespace DesafioPitang.UnitTests
                               .Options;
 
             _context = new Context(options);
+            _userContext = new UserContext();
 
             _repository = new AppointmentRepository(_context);
             RegisterObject(typeof(IAppointmentRepository), _repository);
             RegisterObject(typeof(IUserRepository), _repository);
+            RegisterObject(typeof(IUserContext), _userContext);
 
             Register<IAppointmentBusiness, AppointmentBusiness>();
 
@@ -95,6 +100,25 @@ namespace DesafioPitang.UnitTests
 
         }
 
+        [Test]
+        public async Task GetAllByUser_ShouldReturnGroupedAppointmentsByUser()
+        {
+
+            // Arrange
+            var userContext = GetService<IUserContext>();
+            userContext.AddData("Id", "1");
+            userContext.AddData("Role", "admin");
+
+            // Act 
+            var searchedAppointments = await _business.GetAllByUser();
+
+            // Assert
+            Assert.IsNotNull(searchedAppointments);
+            Assert.That(searchedAppointments.Count, Is.EqualTo(4));
+            Assert.That(searchedAppointments[0].Count, Is.EqualTo(1));
+            Assert.That(searchedAppointments[1].Count, Is.EqualTo(1));
+
+        }
     }
 
 }

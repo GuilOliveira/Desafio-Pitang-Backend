@@ -39,8 +39,8 @@ namespace DesafioPitang.UnitTests
             {
                 var patients = new[]
                 {
-                new Patient { Name = "Danilo Queiroga", BirthDate = new DateTime(2000, 1, 1), CreatedAt = DateTime.Now },
-                new Patient { Name = "Leandro Torres", BirthDate = new DateTime(2000, 5, 20), CreatedAt = DateTime.Now },
+                new Patient { Name = "Danilo Queiroga", BirthDate = new DateTime(2000, 1, 1), CreatedAt = DateTime.Now, UserId = 1 },
+                new Patient { Name = "Leandro Torres", BirthDate = new DateTime(2000, 5, 20), CreatedAt = DateTime.Now, UserId = 1 },
             };
 
                 context.Paciente.AddRange(patients);
