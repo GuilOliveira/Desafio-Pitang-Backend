@@ -79,6 +79,33 @@ namespace DesafioPitang.Utils.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O Email é um campo obrigatório..
+        /// </summary>
+        public static string EmptyUserEmail {
+            get {
+                return ResourceManager.GetString("EmptyUserEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O Nome de usuário deve ser inserido..
+        /// </summary>
+        public static string EmptyUserName {
+            get {
+                return ResourceManager.GetString("EmptyUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A Senha é um campo obrigatório..
+        /// </summary>
+        public static string EmptyUserPassword {
+            get {
+                return ResourceManager.GetString("EmptyUserPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Não existem mais vagas disponíveis para este dia..
         /// </summary>
         public static string FullScheduleDate {
@@ -111,6 +138,15 @@ namespace DesafioPitang.Utils.Messages {
         public static string InvalidDateRange {
             get {
                 return ResourceManager.GetString("InvalidDateRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Email e(ou) senha inválidos..
+        /// </summary>
+        public static string InvalidLoginFields {
+            get {
+                return ResourceManager.GetString("InvalidLoginFields", resourceCulture);
             }
         }
         
@@ -151,11 +187,47 @@ namespace DesafioPitang.Utils.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O campo Email está inválido..
+        /// </summary>
+        public static string InvalidUserEmail {
+            get {
+                return ResourceManager.GetString("InvalidUserEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O perfil de usuário &quot;{0}&quot; é inválido..
+        /// </summary>
+        public static string InvalidUserProfile {
+            get {
+                return ResourceManager.GetString("InvalidUserProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a O nome do paciente não pode conter números..
         /// </summary>
         public static string PatientNameWithNumbers {
             get {
                 return ResourceManager.GetString("PatientNameWithNumbers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A senha inserida é muito curta (mínimo 6 caracteres)..
+        /// </summary>
+        public static string ShortUserPassword {
+            get {
+                return ResourceManager.GetString("ShortUserPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O nome do usuario não pode conter números..
+        /// </summary>
+        public static string UserNameWithNumbers {
+            get {
+                return ResourceManager.GetString("UserNameWithNumbers", resourceCulture);
             }
         }
     }

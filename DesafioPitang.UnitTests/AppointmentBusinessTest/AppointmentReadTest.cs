@@ -27,6 +27,7 @@ namespace DesafioPitang.UnitTests
 
             _repository = new AppointmentRepository(_context);
             RegisterObject(typeof(IAppointmentRepository), _repository);
+            RegisterObject(typeof(IUserRepository), _repository);
 
             Register<IAppointmentBusiness, AppointmentBusiness>();
 

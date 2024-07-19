@@ -2,12 +2,14 @@
 using DesafioPitang.Entities.DTOs;
 using DesafioPitang.Entities.Models;
 using DesafioPitang.Utils.Attributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DesafioPitang.WebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class SchedulingController : ControllerBase
     {
         private readonly ISchedulingBusiness _schedulingBusiness;
@@ -17,6 +19,7 @@ namespace DesafioPitang.WebApi.Controllers
         }
         [HttpPost("Register")]
         [RequiredTransaction]
+        [Authorize]
         public async Task<AppointmentDTO> Post([FromBody] SchedulingModel schedulingModel)
         {
             return await _schedulingBusiness.Post(schedulingModel);

@@ -7,7 +7,9 @@ using DesafioPitang.Repository.Interface.IRepositories;
 using DesafioPitang.Repository.Repositories;
 using DesafioPitang.UnitTests.TestCases.Scheduling;
 using DesafioPitang.Utils.Exceptions;
+using DesafioPitang.Utils.Extensions;
 using DesafioPitang.Utils.Messages;
+using DesafioPitang.Utils.UserContext;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -18,6 +20,8 @@ namespace DesafioPitang.UnitTests
         private ISchedulingBusiness _business;
         private IAppointmentRepository _appointmentRepository;
         private IPatientRepository _patientRepository;
+        private IUserRepository _userRepository;
+        private IUserContext _userContext;
 
         [SetUp]
         public void SetUp()
@@ -28,13 +32,21 @@ namespace DesafioPitang.UnitTests
 
             _context = new Context(options);
 
+            _userContext = new UserContext();
             _appointmentRepository = new AppointmentRepository(_context);
             _patientRepository = new PatientRepository(_context);
+            _userRepository = new UserRepository(_context);
 
             RegisterObject(typeof(IAppointmentRepository), _appointmentRepository);
             RegisterObject(typeof(IPatientRepository), _patientRepository);
+            RegisterObject(typeof(IUserRepository), _userRepository);
+            RegisterObject(typeof(IUserContext), _userContext);
 
             Register<ISchedulingBusiness, SchedulingBusiness>();
+
+            var userContext = GetService<IUserContext>();
+            userContext.AddData("Id", "1");
+            userContext.AddData("Role", "admin");
 
             _business = GetService<ISchedulingBusiness>();
         }
@@ -88,7 +100,7 @@ namespace DesafioPitang.UnitTests
                 await _business.Post(schedulingModel);
             });
 
-            // Assert
+            // Assert   
             Assert.That(ex.Messages, Does.Contain(errorMessage));
         }
 

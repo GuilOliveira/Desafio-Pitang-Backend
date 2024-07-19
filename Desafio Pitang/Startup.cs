@@ -2,6 +2,7 @@
 using DesafioPitang.WebApi.Middlewares;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
+using tusdotnet.Helpers;
 
 namespace DesafioPitang.WebApi
 {
@@ -17,18 +18,11 @@ namespace DesafioPitang.WebApi
         {
             services.AddControllers();
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAll",
-                    builder => builder
-                        .AllowAnyOrigin()
-                        .AllowAnyHeader()
-                        .AllowAnyMethod());
-            });
-
             services.AddDependencyInjectionConfiguration(Configuration);
 
             services.AddDatabaseConfiguration(Configuration);
+
+            services.AddAuthorizationConfiguration(Configuration);
 
             services.AddSwaggerGen(c =>
             {
@@ -41,6 +35,13 @@ namespace DesafioPitang.WebApi
                     Contact = new() { Name = "Guilherme de Oliveira", Url = new Uri("https://github.com/GuilOliveira") },
                     License = new() { Name = "Private", Url = new Uri("https://github.com/GuilOliveira") },
                     TermsOfService = new Uri("http://google.com.br")
+                });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Insira o token",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey
                 });
             });
         }
@@ -66,6 +67,7 @@ namespace DesafioPitang.WebApi
             app.UseAuthorization();
 
             app.UseMiddleware<ApiMiddleware>();
+            app.UseMiddleware<UserContextMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

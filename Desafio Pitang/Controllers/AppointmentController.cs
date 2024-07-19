@@ -2,6 +2,7 @@
 using DesafioPitang.Entities.DTOs;
 using DesafioPitang.Entities.Models;
 using DesafioPitang.Utils.Attributes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DesafioPitang.WebApi.Controllers
@@ -29,6 +30,7 @@ namespace DesafioPitang.WebApi.Controllers
 
         [HttpPatch("Update/Status")]
         [RequiredTransaction]
+        [Authorize]
         public async Task<AppointmentDTO> UpdateStatus([FromBody] AppointmentStatusUpdateModel statusModel)
         {
             return await _appointmentBusiness.UpdateStatus(statusModel);
@@ -36,6 +38,8 @@ namespace DesafioPitang.WebApi.Controllers
 
         [HttpDelete("Delete")]
         [RequiredTransaction]
+        [Authorize]
+
         public async Task<ActionResult> DeleteById([FromQuery] int id)
         {
             await _appointmentBusiness.DeleteById(id);

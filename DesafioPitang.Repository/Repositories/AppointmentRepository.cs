@@ -28,11 +28,12 @@ namespace DesafioPitang.Repository.Repositories
             return await query.ToListAsync();
         }
 
-        public new Task<List<Appointment>> GetAll()
+        public async new Task<List<Appointment>> GetAll()
         {
-            return EntitySet.Include(appointment => appointment.Patient)
-                .OrderBy(appointment => appointment.Date)
-                .ToListAsync();
+            var query = EntitySet.Include(appointment => appointment.Patient)
+                .OrderBy(appointment => appointment.Date);
+                
+            return await query.ToListAsync();
         }
 
         public async Task<int> GetAmountByDate(DateTime date)
@@ -48,6 +49,14 @@ namespace DesafioPitang.Repository.Repositories
             var query = EntitySet.Where(appointment => appointment.Date.Date == date.Date && 
                                                        appointment.Time == time);
             return await query.CountAsync();
+        }
+
+        public async Task<int> GetUserId(int appointmentId)
+        {
+            var appointment = await EntitySet.Include(appointment => appointment.Patient).
+                FirstAsync(appointment => appointment.Id == appointmentId);
+
+            return appointment.Patient.UserId;
         }
     }
 }

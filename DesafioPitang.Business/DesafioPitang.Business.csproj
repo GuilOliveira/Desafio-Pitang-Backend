@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DesafioPitang.Business.Interface\DesafioPitang.Business.Interface.csproj" />
     <ProjectReference Include="..\DesafioPitang.Repository.Interface\DesafioPitang.Repository.Interface.csproj" />
     <ProjectReference Include="..\DesafioPitang.Utils\DesafioPitang.Utils.csproj" />
