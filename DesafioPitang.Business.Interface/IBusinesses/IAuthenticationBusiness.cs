@@ -5,7 +5,7 @@ namespace DesafioPitang.Business.Interface.IBusinesses
 {
     public interface IAuthenticationBusiness
     {
-        Task<UserTokenDTO> Login(LoginModel login);
+        Task<UserTokenDTO> Login(string email, string password);
         Task<UserTokenDTO> RefreshToken();
     }
 }
