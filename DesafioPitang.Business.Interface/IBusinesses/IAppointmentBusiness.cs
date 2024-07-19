@@ -5,8 +5,10 @@ namespace DesafioPitang.Business.Interface.IBusinesses
 {
     public interface IAppointmentBusiness
     {
-        Task<List<AppointmentDTO>> GetAll();
-        Task<List<AppointmentDTO>> GetByDate(DateTime date);
+        Task<List<List<AppointmentDTO>>> GetAll();
+        Task<List<List<AppointmentDTO>>> GetAllByUser();
+        Task<List<List<AppointmentDTO>>> GetByDate(DateTime initialDate, DateTime finalDate);
         Task<AppointmentDTO> UpdateStatus(AppointmentStatusUpdateModel statusModel);
+        Task DeleteById(int id);
     }
 }

@@ -2,6 +2,7 @@
 using DesafioPitang.WebApi.Middlewares;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
+using tusdotnet.Helpers;
 
 namespace DesafioPitang.WebApi
 {
@@ -21,6 +22,8 @@ namespace DesafioPitang.WebApi
 
             services.AddDatabaseConfiguration(Configuration);
 
+            services.AddAuthorizationConfiguration(Configuration);
+
             services.AddSwaggerGen(c =>
             {
                 c.MapType(typeof(TimeSpan), () => new() { Type = "string", Example = new OpenApiString("00:00:00") });
@@ -32,6 +35,13 @@ namespace DesafioPitang.WebApi
                     Contact = new() { Name = "Guilherme de Oliveira", Url = new Uri("https://github.com/GuilOliveira") },
                     License = new() { Name = "Private", Url = new Uri("https://github.com/GuilOliveira") },
                     TermsOfService = new Uri("http://google.com.br")
+                });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Insira o token",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey
                 });
             });
         }
@@ -47,15 +57,17 @@ namespace DesafioPitang.WebApi
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio Pitang v1");
-                c.RoutePrefix = string.Empty;
+                c.RoutePrefix = "swagger";
             });
 
+            app.UseCors("CORS_POLICY");
             app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseMiddleware<ApiMiddleware>();
+            app.UseMiddleware<UserContextMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

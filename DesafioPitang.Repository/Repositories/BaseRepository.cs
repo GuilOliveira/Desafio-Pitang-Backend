@@ -57,17 +57,5 @@ namespace DesafioPitang.Repository.Repositories
             await _context.SaveChangesAsync();
             return entityEntry.Entity;
         }
-
-        public async Task<bool> Exists(TEntity entity)
-        {
-            if (await EntitySet.FindAsync(entity) != null) return true;
-            return false;
-        }
-
-        public async Task<bool> ExistsById(object id)
-        {
-            if (await EntitySet.FindAsync(id) != null) return true;
-            return false;
-        }
     }
 }

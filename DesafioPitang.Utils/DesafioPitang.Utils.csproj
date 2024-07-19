@@ -7,6 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DesafioPitang.Entities\DesafioPitang.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Messages\AuthorizationMessages.Designer.cs">
+      <DependentUpon>AuthorizationMessages.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Messages\BusinessMessages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BusinessMessages.resx</DependentUpon>
+    </Compile>
     <Compile Update="Messages\InfraMessages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -15,6 +29,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Messages\AuthorizationMessages.resx">
+      <LastGenOutput>AuthorizationMessages.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Messages\BusinessMessages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BusinessMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Messages\InfraMessages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>InfraMessages.Designer.cs</LastGenOutput>
