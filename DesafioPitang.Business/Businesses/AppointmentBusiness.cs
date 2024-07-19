@@ -18,17 +18,7 @@ namespace DesafioPitang.Business.Businesses
         {
             _appointmentRepository = appointmentRepository;
             _userContext = userContext;
-        }
-
-        public async Task DeleteById(int id)
-        {
-            AppointmentValidator.EnsureAppointmentExists(await _appointmentRepository.GetById(id)!=null);
-            AppointmentValidator.EnsureUserIsAuthorized(currentUserId: UserContextExtensions.Id(_userContext),
-                                                        UserId: await _appointmentRepository.GetUserId(id),
-                                                        profile: UserContextExtensions.Profile(_userContext));
-
-            await _appointmentRepository.DeleteById(id);
-        }
+        }        
 
         public async Task<List<List<AppointmentDTO>>> GetAll()
         {
@@ -43,6 +33,13 @@ namespace DesafioPitang.Business.Businesses
 
             var appointmentsByDay = await _appointmentRepository.GetAllByDate(initialDate, finalDate);
             return GroupEntities.GroupAppointmentsByDate(appointmentsByDay);
+        }
+
+        public async Task<List<List<AppointmentDTO>>> GetAllByUser()
+        {
+            var currentUserId = UserContextExtensions.Id(_userContext);
+            var appointmentsByUser = await _appointmentRepository.GetAllByUser(currentUserId);
+            return GroupEntities.GroupAppointmentsByDate(appointmentsByUser);
         }
 
         public async Task<AppointmentDTO> UpdateStatus(AppointmentStatusUpdateModel statusModel)
@@ -63,6 +60,15 @@ namespace DesafioPitang.Business.Businesses
                 PatientName = appointment.Patient?.Name,
                 UserId = appointment.Patient.UserId
             };
+        }
+        public async Task DeleteById(int id)
+        {
+            AppointmentValidator.EnsureAppointmentExists(await _appointmentRepository.GetById(id) != null);
+            AppointmentValidator.EnsureUserIsAuthorized(currentUserId: UserContextExtensions.Id(_userContext),
+                                                        UserId: await _appointmentRepository.GetUserId(id),
+                                                        profile: UserContextExtensions.Profile(_userContext));
+
+            await _appointmentRepository.DeleteById(id);
         }
     }
 }

@@ -58,5 +58,14 @@ namespace DesafioPitang.Repository.Repositories
 
             return appointment.Patient.UserId;
         }
+
+        public async Task<List<Appointment>> GetAllByUser(int userId)
+        {
+            var query = EntitySet.Include(appointment => appointment.Patient)
+                                  .Where(appointment => (appointment.Patient.UserId == userId))
+                                  .OrderBy(appointment => appointment.Date);
+
+            return await query.ToListAsync();
+        }
     }
 }
