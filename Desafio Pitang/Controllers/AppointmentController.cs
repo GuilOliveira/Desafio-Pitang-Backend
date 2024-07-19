@@ -28,7 +28,7 @@ namespace DesafioPitang.WebApi.Controllers
             return await _appointmentBusiness.GetByDate(initialDate, finalDate);
         }
 
-        [HttpGet("GetAllByUser")]
+        [HttpGet("GetByUser")]
         [Authorize]
         public async Task<List<List<AppointmentDTO>>> GetAllByUser()
         {

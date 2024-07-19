@@ -60,7 +60,7 @@ namespace DesafioPitang.WebApi
                 c.RoutePrefix = "swagger";
             });
 
-            app.UseCors("AllowAll");
+            app.UseCors("CORS_POLICY");
             app.UseRouting();
 
             app.UseAuthentication();
